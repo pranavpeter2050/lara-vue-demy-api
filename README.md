@@ -25,7 +25,8 @@ It is a mechanism to transform your Eloquent model into JSON responses. When we 
 
 ## Notes
 
-- Since we are building API, we don't need the `create()` method in `TaskController`.
+- Since we are building API, we don't need the `create()`, `edit()` methods in `TaskController`.
+- Since we need the same rules from `StoreTaskRequest`, we empty the `UpdateTaskRequest` and then extend the `UpdateTaskRequest` with  `StoreTaskRequest`.
 
 ## License
 
