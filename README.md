@@ -44,6 +44,39 @@ Next, if you plan to utilize Sanctum to authenticate a SPA, you should add Sanct
 
 Add `SESSION_DOMAIN=localhost` in `.env` if it's not there.
 
+### SPA Authentication - Signing users in
+
+Run below command to create an **invokable** LoginController:
+
+```bash
+php artisan make:controller Auth/LoginController -i
+```
+
+Create a Form-request validator for the newly created controller by running:
+
+```bash
+php artisan make:request LoginRequest
+```
+
+Open Laravel Tinker and generate a new user.
+
+```bash
+// to open tinker
+php artisan tinker
+
+// to create new user using tinker 
+App\Models\User::factory()->create()
+```
+
+### SPA Authentication - Signing users in
+
+Create a invokable LogoutController: 
+
+```bash
+php artisan make:controller Auth/LogoutController -i
+```
+
+
 ## Notes
 
 - Since we are building API, we don't need the `create()`, `edit()` methods in `TaskController`.
