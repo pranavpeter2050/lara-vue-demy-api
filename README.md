@@ -24,6 +24,26 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 It is a mechanism to transform your Eloquent model into JSON responses. When we use this to return response to the frontend, we will see our (Tasks) collection wrapped inside a "data" array.
 
+## Securing APIs using Laravel Sanctum
+
+Latest versions of Laravel should have Sanctum pre-installed. Check if you have it or not. Now, publish the Sanctum configuration and migration files using the vendor:publish Artisan command. The sanctum configuration file will be placed in your application's config directory:
+
+```bash
+php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
+```
+
+Next, if you plan to utilize Sanctum to authenticate a SPA, you should add Sanctum's middleware to your api middleware group within your application's app/Http/Kernel.php file:
+
+```bash
+'api' => [
+    \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+    \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+    \Illuminate\Routing\Middleware\SubstituteBindings::class,
+],
+```
+
+Add `SESSION_DOMAIN=localhost` in `.env` if it's not there.
+
 ## Notes
 
 - Since we are building API, we don't need the `create()`, `edit()` methods in `TaskController`.
@@ -33,3 +53,7 @@ It is a mechanism to transform your Eloquent model into JSON responses. When we 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## References
+
+- [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum)
