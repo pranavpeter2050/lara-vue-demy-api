@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api\V1;
 
 use Illuminate\Http\Request;
 use App\Models\Movies;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
-use Illuminate\Routing\Controller as BaseController;
-
-class MovieController extends BaseController
+class MovieController extends Controller
 {
     /**
     * Display a listing of the resource.
