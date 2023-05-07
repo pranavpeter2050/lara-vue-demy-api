@@ -23,6 +23,10 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 It is a mechanism to transform your Eloquent model into JSON responses. When we use this to return response to the frontend, we will see our (Tasks) collection wrapped inside a "data" array.
 
+## Notes
+
+- Since we are building API, we don't need the `create()` method in `TaskController`.
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
