@@ -18,6 +18,7 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 | php artisan make:model |                           |
 | php artisan route:list --path=api |                           |
 | php artisan make:resource TaskResource | To create an API resource                 |
+| php artisan make:controller |                           |
 
 ## Eloquent API Resource
 
@@ -27,6 +28,7 @@ It is a mechanism to transform your Eloquent model into JSON responses. When we 
 
 - Since we are building API, we don't need the `create()`, `edit()` methods in `TaskController`.
 - Since we need the same rules from `StoreTaskRequest`, we empty the `UpdateTaskRequest` and then extend the `UpdateTaskRequest` with  `StoreTaskRequest`.
+- `CompleteTaskController` was made `invokable` by running `php artisan make:controller` -> specifying the name -> selecting "invokable".
 
 ## License
 
